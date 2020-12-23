@@ -15,7 +15,7 @@ def cache(f, limit=6, cache={}):
             cache[args[1]] = args[2]
             print("load into cache")
         else:
-            if args[1] in cache:
+            if cache.get(args[1]) is not None:
                 print("return from cache")
                 return cache[args[1]]
         return f(*args)
